@@ -5,7 +5,7 @@ import BlogCard from "./BlogCard";
 
 const BlogList = ({ blogs }) => {
   const blogList = blogs.map((blog) => (
-    <Col lg="4" className="mt-4">
+    <Col lg="4" className="mt-4" key={blog.id}>
       <BlogCard blog={blog} />
     </Col>
   ));
