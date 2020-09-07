@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 import BlogList from "../presentational/BlogList";
 import lorem from "../presentational/lorem";
+import Title from "../presentational/Title";
 
 class Blog extends Component {
   state = {
@@ -29,7 +29,7 @@ class Blog extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Blog</h1>
+        <Title title="Mein Blog" />
         <Row>
           <BlogList blogs={this.state.blogs} />
         </Row>

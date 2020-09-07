@@ -1,5 +1,7 @@
 import React from "react";
 
-const About = () => <h1>About</h1>;
+import Title from "./Title";
+
+const About = () => <Title title="Über mich" />;
 
 export default About;
