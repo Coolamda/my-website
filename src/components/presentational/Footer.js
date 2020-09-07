@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer>
     <ul>
       <li>
-        <a href="#">Über mich</a>
+        <Link to="/about">Über mich</Link>
       </li>
       <li>
-        <a href="#">Blog</a>
+        <Link to="/blog">Blog</Link>
       </li>
       <li>
-        <a href="#">Projekte</a>
+        <Link to="/projects">Projekte</Link>
       </li>
       <li>
-        <a href="#">Impressum</a>
+        <Link to="/">Impressum</Link>
       </li>
     </ul>
   </footer>
