@@ -1,38 +1,39 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 
 import BlogList from "../presentational/BlogList";
-import lorem from "../presentational/lorem";
 import Title from "../presentational/Title";
 
 class Blog extends Component {
   state = {
-    blogs: [
-      {
-        id: 1,
-        title: "Blog 1",
-        text: lorem,
-      },
-      {
-        id: 2,
-        title: "Blog 2",
-        text: lorem,
-      },
-      {
-        id: 3,
-        title: "Blog 3",
-        text: lorem,
-      },
-    ],
+    blogs: null,
   };
 
+  async componentDidMount() {
+    const fetchResponse = await fetch("http://localhost:8080/api/blog");
+    const blogs = await fetchResponse.json();
+
+    this.setState({ blogs });
+  }
+
   render() {
+    let blogList = this.state.blogs;
+
+    if (!blogList) {
+      blogList = (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      );
+    } else {
+      blogList = <BlogList blogs={this.state.blogs} />;
+    }
+
     return (
       <React.Fragment>
         <Title title="Mein Blog" />
-        <Row>
-          <BlogList blogs={this.state.blogs} />
-        </Row>
+        <Row>{blogList}</Row>
       </React.Fragment>
     );
   }
