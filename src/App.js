@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Nav from "./components/presentational/Nav";
+import Navigation from "./components/presentational/Navigation";
 import Footer from "./components/presentational/Footer";
 import Home from "./components/presentational/Home";
 import Blog from "./components/presentational/Blog";
@@ -11,7 +11,7 @@ import Projects from "./components/presentational/Projects";
 
 const App = () => (
   <div>
-    <Nav />
+    <Navigation />
     <main>
       <Switch>
         <Route path="/about">
