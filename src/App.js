@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import styled from "styled-components";
 
 import Navigation from "./components/presentational/Navigation";
 import Footer from "./components/presentational/Footer";

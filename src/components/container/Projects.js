@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 
 import Title from "../presentational/Title";
@@ -29,8 +28,6 @@ class Projects extends Component {
 
   render() {
     const { projects } = this.state;
-
-    console.log(projects);
 
     if (!projects) {
       return (
