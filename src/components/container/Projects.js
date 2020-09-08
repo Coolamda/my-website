@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Spinner from "react-bootstrap/Spinner";
 
+import Loading from "../presentational/Loading";
 import Title from "../presentational/Title";
 
 class Projects extends Component {
@@ -30,11 +30,7 @@ class Projects extends Component {
     const { projects } = this.state;
 
     if (!projects) {
-      return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      );
+      return <Loading />;
     }
 
     return (

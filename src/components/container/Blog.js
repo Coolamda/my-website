@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
 
+import Loading from "../presentational/Loading";
 import BlogList from "../presentational/BlogList";
 import Title from "../presentational/Title";
 
@@ -21,11 +21,7 @@ class Blog extends Component {
     let blogList = this.state.blogs;
 
     if (!blogList) {
-      blogList = (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      );
+      blogList = <Loading />;
     } else {
       blogList = <BlogList blogs={this.state.blogs} />;
     }
