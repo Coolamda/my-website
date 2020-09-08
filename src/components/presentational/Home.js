@@ -42,7 +42,6 @@ class Home extends Component {
         if (j === splitWord.length - 1) {
           this.setState({ text: this.state.text + splitWord[j] });
           await delay(1200);
-
           this.setState({ text: "" });
         } else {
           await delay(130);
