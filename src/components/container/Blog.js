@@ -29,13 +29,13 @@ class Blog extends Component {
     }
 
     return (
-      <React.Fragment>
+      <>
         <Title title="Mein Blog" />
         <LinkContainer to="blog/create">
           <Button variant="success">Post erstellen</Button>
         </LinkContainer>
         <Row>{blogList}</Row>
-      </React.Fragment>
+      </>
     );
   }
 }

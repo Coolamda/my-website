@@ -16,7 +16,6 @@ class AddBlogForm extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(this.state));
 
     await fetch("http://localhost:8080/api/blog", {
       method: "POST",

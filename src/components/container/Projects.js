@@ -34,10 +34,10 @@ class Projects extends Component {
     }
 
     return (
-      <React.Fragment>
+      <>
         <Title title="Projects" />
         <ul>{this.renderProjects()}</ul>
-      </React.Fragment>
+      </>
     );
   }
 }
