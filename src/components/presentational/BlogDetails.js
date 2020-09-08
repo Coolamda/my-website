@@ -1,21 +1,34 @@
 import React, { Component } from "react";
-import { useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Button from "react-bootstrap/Button";
-import lorem from "./lorem";
+
+import Loading from "./Loading";
 
 class BlogDetails extends Component {
   state = {
     blog: null,
   };
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+    const response = await fetch(`http://localhost:8080/api/blog/${id}`);
+    const blog = await response.json();
+
+    this.setState({ blog });
+  }
 
   render() {
+    if (!this.state.blog) {
+      return <Loading />;
+    }
+
+    const { title, text } = this.state.blog;
+
     return (
       <article>
-        <h1>Blog 1</h1>
-        <p className="mt-5">{lorem}</p>
+        <h1>{title}</h1>
+        <p className="mt-5">{text}</p>
         <LinkContainer to="/blog">
           <Button>Zurück</Button>
         </LinkContainer>
@@ -24,4 +37,4 @@ class BlogDetails extends Component {
   }
 }
 
-export default BlogDetails;
+export default withRouter(BlogDetails);

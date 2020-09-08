@@ -11,7 +11,7 @@ const BlogCard = ({ blog }) => (
       <Card.Text>
         <TextTruncate line={5} element="span" text={blog.text} />
       </Card.Text>
-      <LinkContainer to={`blog/${blog.id}`}>
+      <LinkContainer to={`blog/${blog._id}`}>
         <Button variant="primary">Weiter lesen</Button>
       </LinkContainer>
     </Card.Body>
