@@ -6,6 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import Loading from "../presentational/Loading";
 import BlogList from "../presentational/BlogList";
 import Title from "../presentational/Title";
+import url from "../../url";
 
 class Blog extends Component {
   state = {
@@ -13,7 +14,7 @@ class Blog extends Component {
   };
 
   async componentDidMount() {
-    const fetchResponse = await fetch("http://localhost:8080/api/blog");
+    const fetchResponse = await fetch(`${url}/blog`);
     const blogs = await fetchResponse.json();
 
     this.setState({ blogs });

@@ -1,28 +1,35 @@
 import React, { Component } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { LinkContainer } from "react-router-bootstrap";
 import { withRouter } from "react-router-dom";
+
+import BlogForm from "../presentational/BlogForm";
+import url from "../../url";
 
 class AddBlogForm extends Component {
   state = {
-    title: "",
-    text: "",
+    blog: {
+      title: "",
+      text: "",
+    },
   };
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      blog: {
+        ...this.state.blog,
+        [e.target.name]: e.target.value,
+      },
+    });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:8080/api/blog", {
+    await fetch(`${url}/blog`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(this.state.blog),
     });
 
     this.props.history.push("/blog");
@@ -30,32 +37,13 @@ class AddBlogForm extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group>
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            value={this.state.title}
-            name="title"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Text</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="5"
-            value={this.state.text}
-            name="text"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Button type="submit" variant="success" className="mr-2">
-          Speichern
-        </Button>
-        <LinkContainer to="/blog">
-          <Button variant="danger">Abrechen</Button>
-        </LinkContainer>
-      </Form>
+      <BlogForm
+        submit={this.handleSubmit}
+        change={this.handleChange}
+        title={this.state.blog.title}
+        text={this.state.blog.text}
+        editable
+      />
     );
   }
 }
