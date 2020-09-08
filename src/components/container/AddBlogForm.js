@@ -18,7 +18,7 @@ class AddBlogForm extends Component {
     e.preventDefault();
     console.log(JSON.stringify(this.state));
 
-    const response = await fetch("http://localhost:8080/api/blog", {
+    await fetch("http://localhost:8080/api/blog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
