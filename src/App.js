@@ -9,6 +9,7 @@ import Blog from "./components/container/Blog";
 import BlogDetails from "./components/presentational/BlogDetails";
 import About from "./components/presentational/About";
 import Projects from "./components/container/Projects";
+import AddBlogForm from "./components/container/AddBlogForm.js";
 
 const App = () => (
   <div>
@@ -18,6 +19,9 @@ const App = () => (
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/blog/create">
+            <AddBlogForm />
           </Route>
           <Route path="/blog/:id">
             <BlogDetails />

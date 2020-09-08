@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import { LinkContainer } from "react-router-bootstrap";
 
 import Loading from "../presentational/Loading";
 import BlogList from "../presentational/BlogList";
@@ -29,6 +31,9 @@ class Blog extends Component {
     return (
       <React.Fragment>
         <Title title="Mein Blog" />
+        <LinkContainer to="blog/create">
+          <Button variant="success">Post erstellen</Button>
+        </LinkContainer>
         <Row>{blogList}</Row>
       </React.Fragment>
     );
