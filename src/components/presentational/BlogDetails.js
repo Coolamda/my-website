@@ -49,19 +49,15 @@ class BlogDetails extends Component {
     this.setState({ blog, edit: false });
   };
 
-  handleChange = (e) => {
+  handleChange = (e) =>
     this.setState({
       blog: {
         ...this.state.blog,
         [e.target.name]: e.target.value,
       },
     });
-  };
 
   handleEdit = () => this.setState({ edit: !this.state.edit });
-
-  // TODO
-  renderBlog() {}
 
   render() {
     if (!this.state.blog) {

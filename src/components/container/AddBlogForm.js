@@ -12,14 +12,13 @@ class AddBlogForm extends Component {
     },
   };
 
-  handleChange = (e) => {
+  handleChange = (e) =>
     this.setState({
       blog: {
         ...this.state.blog,
         [e.target.name]: e.target.value,
       },
     });
-  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
