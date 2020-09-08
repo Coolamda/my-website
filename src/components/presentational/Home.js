@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import styled from "styled-components";
 import { delay } from "q";
 
@@ -18,7 +17,7 @@ const FullscreenText = styled.div`
 `;
 
 const BigText = styled.span`
-  font-size: 6rem;
+  font-size: 3.6rem;
 `;
 
 class Home extends Component {
