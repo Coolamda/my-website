@@ -38,7 +38,7 @@ const About = () => (
           </p>
         </Col>
         <Col lg="4" className="text-center">
-          <img src="https://via.placeholder.com/300x400" />
+          <img src="https://via.placeholder.com/300x400" alt="placeholder" />
         </Col>
       </Row>
       <Row className="mb-3">
@@ -57,6 +57,7 @@ const About = () => (
           <img
             src="https://via.placeholder.com/800x400"
             className="img-fluid mb-3"
+            alt="placeholder"
           />
         </Col>
         <Col lg="4">
