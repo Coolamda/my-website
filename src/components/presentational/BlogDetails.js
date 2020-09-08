@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Button from "react-bootstrap/Button";
+import objectIdToTimestamp from "objectid-to-timestamp";
+import moment from "moment";
 
 import Loading from "./Loading";
 import BlogForm from "./BlogForm";
@@ -66,12 +68,15 @@ class BlogDetails extends Component {
       return <Loading />;
     }
 
-    const { title, text } = this.state.blog;
+    const { title, text, _id } = this.state.blog;
+
+    const timeStamp = objectIdToTimestamp(_id);
 
     if (!this.state.edit) {
       return (
         <article>
           <h1>{title}</h1>
+          <span>{moment.unix(timeStamp).format("DD.MM")}</span>
           <p className="mt-5">{text}</p>
           <LinkContainer to="/blog">
             <Button className="mr-2">Zurück</Button>
